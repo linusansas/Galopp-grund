@@ -3,36 +3,85 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
         <title>Document</title>
     </head>
     <body>
         <header class="header">
-            <div class="header-cont">
-                <a href="#default"><img src="img/Galopp-small.png" style="width: 150px;"></a>
-                <div class="menu">
-                    <a class="active" href="#Bryggeriet">BRYGGERIET</a>
-                    <a href="#contact">HÅLLBARHET</a>
-                    <a href="#about">VÅR VISION</a>
-                </div>
-                <div class="header-right">
-                    <a href="#handlare">KRÖGARE LOGIN</a>
-                </div>
+            <div class="header-container">
+                <a href="index.html"><img src="img/Galopp-small.png" style="width: 150px" alt="Logo" /></a>
+                <nav class="menu">
+                    <a class="active" href="bryggeriet.html">BRYGGERIET</a>
+                    <a href="sortiment.html">SORTIMENT</a>
+                    <a href="kontakt.html">KONTAKT</a>
+                    <a class="header-right" href="#handlare">KRÖGARE LOGIN</a>
+                </nav>
+                <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
+            </div>
+            <div class="dropdown-menu">
+                <a class="active" href="bryggeriet.html">BRYGGERIET</a>
+                <a href="sortiment.html">SORTIMENT</a>
+                <a href="kontakt.html">KONTAKT</a>
+                <a href="#handlare">KRÖGARE LOGIN</a>
             </div>
         </header>
         <main class="main">
             <div class="flex-container fill">
-                <div><img src="img/bryggeriet1.png" alt="" /></div>
-                <div><img src="img/skratt.png" alt="" /></div>
+                <div class="image-container">
+                    <a href="bryggeriet.html">
+                        <img src="img/bryggeriet1.png" alt="Bryggeriet" />
+                        <div class="overlay">
+                            <h2>BRYGGERIET</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="image-container">
+                    <a href="sortiment.html">
+                        <img src="img/burk.png" alt="Burk" />
+                        <div class="overlay">
+                            <h2>SORTIMENT</h2>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="flex-container fill">
-                <div><img src="img/hållbarhet.png" alt="" /></div>
+                <div class="image-container">
+                    <a href="hållbarhet.html">
+                        <img src="img/hållbarhet.png" alt="Hållbarhet" />
+                        <div class="overlay">
+                            <h2>HÅLLBARHET</h2>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="flex-container fill">
-                <div><img src="img/bryggeriet1.png" alt="" /></div>
-                <div><img src="img/bryggeriet1.png" alt="" /></div>
-                <div><img src="img/bryggeriet1.png" alt="" /></div>
+                <div class="flex-container fill">
+                    <div class="image-container">
+                        <a href="karriär.html">
+                            <img src="img/skratt.png" alt="Bryggeriet" />
+                            <div class="overlay">
+                                <h2>ARBETA HOS OSS</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="image-container">
+                        <a href="kontakt.html">
+                            <img src="img/kontakt.png" alt="Burk" />
+                            <div class="overlay">
+                                <h2>KONTAKT</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </main>
+        <script>
+            document.querySelector(".menu-toggle").addEventListener("click", function () {
+                document.querySelector(".dropdown-menu").classList.toggle("show");
+            });
+        </script>
     </body>
 </html>

@@ -1,24 +1,28 @@
 body,
 html {
     margin: 0;
+    padding: 0; /* Lägg till detta för att undvika margin/padding problem */
     background-color: #fffdf7;
+    font-family: "Montserrat", sans-serif;
+    height: 100%; /* Lägg till detta för att säkerställa att body och html sträcker sig över hela skärmen */
 }
 
-.logo {
-    position: relative;
-    float: left;
-}
+/*---------- Header ----------*/
 
 .header {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: #fffdf7;
     border-bottom: 1px solid rgba(4, 17, 74, 0.25);
+    color: #04114a;
+    position: relative;
 }
 
-.header-cont {
+.header-container {
     margin-left: 20px;
     margin-right: 20px;
     width: 100%;
@@ -30,55 +34,107 @@ html {
 }
 
 .header a {
-    color: black;
+    color: #04114a;
     text-align: center;
     padding: 12px;
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
-    border-radius: 4px;
 }
 
 .menu {
     display: flex;
-    gap: 20px;
+    gap: 15px;
+}
+
+.menu a {
+    transition: text-shadow 0.2s ease;
 }
 
 .menu a:hover {
-    background-color: #ddd;
-    color: black;
+    text-shadow: 2px 2px 5px rgba(116, 82, 194, 0.293);
+    color: #04114a;
 }
 
 .header-right {
-    float: right;
+    display: inline;
 }
 
-@media screen and (max-width: 640px) {
-    .header-cont {
-        flex-direction: column;
-        align-items: flex-start;
+/* Dropdown menu styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #04114a;
+    cursor: pointer;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fffdf7;
+    border-top: 1px solid rgba(4, 17, 74, 0.25);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px;
+    color: #04114a;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+@media screen and (max-width: 845px) {
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .menu {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .header a {
-        display: block;
-        width: 100%;
+        display: none;
     }
 
     .header-right {
-        float: none;
+        display: none; 
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .dropdown-menu {
         width: 100%;
-        text-align: right;
+        left: 0;
+        right: 0;
     }
 }
 
+/*---------- Main ----------*/
+
+h2 {
+    font-size: 29pt;
+    margin: 10px;
+}
+
 .main {
-    margin: 20px auto;
+    margin: 0 auto; /* Centrerar blocket horisontellt */
     max-width: 1440px;
     display: flex;
     flex-direction: column;
@@ -90,17 +146,16 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
+    flex: 1;
+    min-width: 250px;
 }
 
 .flex-container > div {
     flex: 1;
     min-width: 250px;
-    font-size: 30px;
-}
-
-.fill {
-    width: 100%;
+    position: relative;
+    margin: 0;
 }
 
 .fill img {
@@ -108,7 +163,31 @@ html {
     height: auto;
 }
 
-@media (max-width: 640px) {
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background 1s ease;
+}
+
+.overlay:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 845px) {
     .flex-container {
         flex-direction: column;
         align-items: center;
